@@ -44,6 +44,7 @@ public class ConversanteDAO {
     public List<Conversante> GetAll(){
         List<Conversante> lista = new ArrayList();
         String campos[] = new String[]{"Nome","Celular","Email"};
+        Open();
         Cursor dados = db.query(
                 TABLE_NAME,
                 campos,
@@ -64,7 +65,7 @@ public class ConversanteDAO {
             lista.add(c);
         }
         while (dados.moveToNext());
-
+        Close();
         return lista;
     }
 }

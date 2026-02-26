@@ -6,13 +6,6 @@ public class Conversante {
     private String Celular;
     private String Email;
 
-    public Conversante(int id, String nome, String celular, String email) {
-        Id = id;
-        Nome = nome;
-        Celular = celular;
-        Email = email;
-    }
-
     public Conversante(String nome, String celular, String email) {
         Nome = nome;
         Celular = celular;

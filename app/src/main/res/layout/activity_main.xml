@@ -48,26 +48,27 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inserir na conversa"
             android:id="@+id/btnInserir"
-            android:layout_alignParentLeft="true"
-            />
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nova conversa"
+            android:layout_alignParentLeft="true"
+            android:onClick="InserirTap"
+            android:text="Inserir contato" />
+
+        <Button
             android:id="@+id/btnNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            />
+            android:onClick="NovoTap"
+            android:text="Novo contato" />
     </RelativeLayout>
 
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="AAAAA"
-        android:id="@+id/txtConversas"/>
+        android:id="@+id/listConversas"/>
 
 </LinearLayout>
