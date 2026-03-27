@@ -57,8 +57,9 @@ public class ConversanteDAO {
         dados.put("Nome", c.getNome());
         dados.put("Celular", c.getCelular());
         dados.put("Email", c.getEmail());
+        this.Open();
         db.update("conversantes", dados, "Id=?", new String[]{String.valueOf(c.getId())});
-
+        this.Close();
     }
     public List<Conversante> GetAll(){
         List<Conversante> lista = new ArrayList();
