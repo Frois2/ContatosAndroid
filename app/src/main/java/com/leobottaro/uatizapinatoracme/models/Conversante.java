@@ -1,10 +1,14 @@
 package com.leobottaro.uatizapinatoracme.models;
 
-public class Conversante {
+import java.io.Serializable;
+
+public class Conversante implements Serializable {
     private int Id;
     private String Nome;
     private String Celular;
     private String Email;
+
+    public Conversante(){}
 
     public Conversante(String nome, String celular, String email) {
         Nome = nome;

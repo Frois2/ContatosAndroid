@@ -41,6 +41,25 @@ public class ConversanteDAO {
         return key;
     }
 
+    public void Excluir(Conversante c){
+        if (c.getId() <= 0){
+            return;
+        }
+
+        db.delete("conversantes", "id?", new String[]{String.valueOf(c.getId())});
+    }
+
+    public void Atualizar ( Conversante c){
+        if (c.getId() <= 0){
+            return;
+        }
+        ContentValues dados = new ContentValues();
+        dados.put("Nome", c.getNome());
+        dados.put("Celular", c.getCelular());
+        dados.put("Email", c.getEmail());
+        db.update("conversantes", dados, "Id=?", new String[]{String.valueOf(c.getId())});
+
+    }
     public List<Conversante> GetAll(){
         List<Conversante> lista = new ArrayList();
         String campos[] = new String[]{"Nome","Celular","Email"};
@@ -55,16 +74,17 @@ public class ConversanteDAO {
                 "Nome",
                 null);
 
-        dados.moveToFirst();
-        do {
-            Conversante c = new Conversante(
-                    dados.getString(0),
-                    dados.getString(1),
-                    dados.getString(2)
-            );
-            lista.add(c);
+
+        if (dados.moveToFirst()) {
+            do {
+                Conversante c = new Conversante(
+                        dados.getString(0),
+                        dados.getString(1),
+                        dados.getString(2)
+                );
+                lista.add(c);
+            } while (dados.moveToNext());
         }
-        while (dados.moveToNext());
         Close();
         return lista;
     }
